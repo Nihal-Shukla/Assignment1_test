@@ -1,0 +1,97 @@
+// *{
+//     margin: 0px;
+//     padding: 0px;
+//     box-sizing: border-box;
+// }
+.formContainer{
+    height: 100%;
+    width: 98vw;
+    border: 1px solid #5B9CD5 ;
+    margin-top: 10px;
+    border-radius: 6px 6px 0 0 ;
+}
+
+.header{
+    height: 2em;
+    width: 100%;
+    background-color:#5B9CD5 ;
+    border-radius: 5px 5px 0 0;
+    p{
+        color: white;
+        font-size: 1.05em;
+        font-weight: 400;
+        font-family: Arial, Helvetica, sans-serif;
+    }
+}
+
+.chamfer-box {
+      width: 200px; /* top width */
+      height: 1.5em;
+      background: #494949;
+      color: white;
+      /* Creating trapezoid with chamfer on right side */
+      clip-path: polygon(
+        0 0,         /* top-left */
+        100% 0,      /* top-right */
+        90% 100%,    /* bottom-right (narrowed) */
+        0 100%       /* bottom-left */
+      );
+    }
+
+
+    .formGroup{
+        
+.grayForm{
+    background-color: #BAB9B7;
+    border: 1px solid gray;
+}
+    .redForm{
+        background-color: #A81212;
+        border: 1px solid black;
+    }
+    .redForm::placeholder {
+  color: white;
+  text-align: center;
+}
+.lightGray{
+    background-color: #EEEEEE;
+    border: 1px solid gray;
+}
+
+    }
+
+    .box{
+    height: 250px;
+    border: 2px solid black;
+    border-radius: 5px;
+    .topText{
+        background-color: #304B5D;
+        color: white;
+         position: relative;
+         top: -10px;
+         left: 10px;
+      font-weight: 600;
+      font-size: 13px;
+      border-radius: 4px;
+    }
+    label{
+      font-weight: 600;
+      font-size: 13px;   
+    }
+    button{
+      border: none;
+      border-radius: 5px;
+      background-color:gray;
+    }
+   
+.lightGray{
+    background-color: #EEEEEE;
+    border: 1px solid gray;
+}
+}
+
+
+
+
+
+  
