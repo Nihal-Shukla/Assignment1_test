@@ -17,7 +17,7 @@
   </div>
 </div>
 <!-- ICON BAR -->
- 
+
 <div class="iconBar">
   <div class="row">
     <div class="col-12 d-flex my-2">
@@ -31,20 +31,26 @@
     </div>
   </div>
 </div>
-<div class="formGroup px-2">
+<div class="formGroup px-2" [formGroup]="assignmentForm">
 <div class="row">
   
 <div class="col-lg-4 ">
   <div class="chamfer-box d-flex justify-content-center align-items-center"> General Information </div>
 </div>
 <div class="col-lg-2 ">
-   <input type="file" class="my-2 my-md-0">
+   <input type="file" class="my-2 my-md-0" formControlName="checkForm">
+  @if (assignmentForm.get('checkForm')?.errors?.['required'] && assignmentForm.get('checkForm')?.touched) {
+  <span class="text-danger"> Please Select JPG or PNG  </span>
+}
 </div>
 
 <div class="col-lg-2 col-md-4">
-    <input class="form-control form-control-sm grayForm my-2 my-md-0" type="text"  aria-label=".form-control-sm example">
+    <input class="form-control form-control-sm grayForm my-2 my-md-0" type="text"  aria-label=".form-control-sm example" formControlName="checkForm1">
+      @if (assignmentForm.get('checkForm1')?.errors?.['required'] && assignmentForm.get('checkForm1')?.touched) {
+  <span class="text-danger"> Please Enter Data </span>
+}
   </div>
-<div class="col-lg-2">
+<div class="col-lg-2" (click)="showAlert()">
   <input class="form-control form-control-sm grayForm my-2 my-md-0 redForm" type="text"  aria-label=".form-control-sm example" placeholder="Apply to POC">
 </div>
 <div class="col-lg-2">
@@ -62,12 +68,15 @@
   </div>
  <div class="col-lg-2 col-md-4">
     <label for="">Choose Status</label>
-    <select class="form-select form-select-sm" aria-label=".form-select-sm example" style="border: 1px solid gray;">
+    <select class="form-select form-select-sm" aria-label=".form-select-sm example" style="border: 1px solid gray;" formControlName="selectOne">
   <option selected>Open this select menu</option>
   <option value="1">One</option>
   <option value="2">Two</option>
   <option value="3">Three</option>
 </select>
+ @if (assignmentForm.get('selectOne')?.errors?.['required'] && assignmentForm.get('selectOne')?.touched) {
+  <span class="text-danger"> Please Select one </span>
+ }
   </div>
 
 <div class="col-lg-2 col-md-4 d-flex align-items-end">
@@ -101,7 +110,10 @@
  <div class="row">
   <div class="col-lg-4 col-md-6">
     <label for="">Shukla</label>
-    <input class="form-control form-control-sm lightGray" type="text"  aria-label=".form-control-sm example">
+    <input class="form-control form-control-sm lightGray" type="text"  aria-label=".form-control-sm example" formControlName="shuklaForm">
+     @if (assignmentForm.get('shuklaForm')?.errors?.['required'] && assignmentForm.get('shuklaForm')?.touched) {
+  <span class="text-danger"> Please Enter Your details </span>
+ }
   </div>
 
   <div class="col-lg-2 col-md-4">
@@ -128,8 +140,14 @@
  <!-- 4th row -->
  <div class="row">
   <div class="col-lg-4 col-md-6">
-    <label for="">Mumbai</label>
-    <input class="form-control form-control-sm " type="text"  aria-label=".form-control-sm example" style="border: 1px solid gray;">
+    <label for="">Email</label>
+    <input class="form-control form-control-sm " type="text"  aria-label=".form-control-sm example" style="border: 1px solid gray;" formControlName="email" placeholder="nihal732@gmail.com">
+     @if (assignmentForm.get('email')?.errors?.['required'] && assignmentForm.get('email')?.touched) {
+  <span class="text-danger"> Please Enter Your Email ID </span>
+ }
+ @else if (assignmentForm.get('email')?.errors?.['email'] && assignmentForm.get('email')?.touched) {
+  <span class="text-danger">Invalid Email Format</span>
+}
   </div>
 
   <div class="col-lg-2 col-md-4">
@@ -138,7 +156,10 @@
   </div>
   <div class="col-lg-2 col-md-4">
     <label for="">Status</label>
-    <input class="form-control form-control-sm lightGray" type="date"  aria-label=".form-control-sm example">
+    <input class="form-control form-control-sm lightGray" type="date"  aria-label=".form-control-sm example" formControlName="date">
+      @if (assignmentForm.get('date')?.errors?.['required'] && assignmentForm.get('date')?.touched) {
+  <span class="text-danger"> Please choose date </span>
+ }
   </div>
   <div class="col-lg-2 col-md-4">
     <label for="">Status</label>
@@ -358,8 +379,8 @@
       <input class="form-control form-control-sm lightGray" type="text"  aria-label=".form-control-sm example">
       
         <div class="my-2">
-          <button class="mx-2" style="color: white;">Attach File</button>
-          <button class="mx-2">Submit</button>
+          <button class="mx-2"> Yes </button>
+          <button class="mx-2">No</button>
         </div>
         
     </div>
